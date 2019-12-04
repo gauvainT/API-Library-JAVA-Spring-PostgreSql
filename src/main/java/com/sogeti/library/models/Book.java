@@ -26,11 +26,11 @@ public class Book {
 	@Column(name="summary")
 	private String summary;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_author")
 	private Author author;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_category")
 	private Category category;
 	

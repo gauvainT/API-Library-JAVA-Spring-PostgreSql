@@ -57,11 +57,11 @@ public class AuthorDao implements IAuthorDao {
 	@Override
 	public void addAuthor(Author author) {
 		
-		final String request = "INSERT INTO author (name, firstname) VALUES (:nameAuthor, :firstnameAuthor)";
+		final String request = "INSERT INTO author (name_author, firstname_author) VALUES (:nameAuthor, :firstnameAuthor)";
 		
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("nameAuthor", author.getName());
-		map.put("firstnameAuthor", author.getFirstname());
+		map.put("nameAuthor", author.getNameAuthor());
+		map.put("firstnameAuthor", author.getFirstnameAuthor());
 		
 		try {
 			jdbcTemplate.execute(request, map, new PreparedStatementCallback<Object>() {  
@@ -79,11 +79,11 @@ public class AuthorDao implements IAuthorDao {
 
 	@Override
 	public void updateAuthor(Author author) {
-		final String request = "UPDATE author SET name=:authorName, firstname=:authorFirstname WHERE id_author=:idAuthor";
+		final String request = "UPDATE author SET name_author=:authorName, firstname_author=:authorFirstname WHERE id_author=:idAuthor";
 
 		 Map<String,Object> map=new HashMap<String,Object>();  
-		map.put("authorName", author.getName());
-		map.put("authorFirstname", author.getFirstname());
+		map.put("authorName", author.getNameAuthor());
+		map.put("authorFirstname", author.getFirstnameAuthor());
 		map.put("idAuthor", author.getIdAuthor());
 		try {
 			jdbcTemplate.execute(request, map, new PreparedStatementCallback<Object>() {  

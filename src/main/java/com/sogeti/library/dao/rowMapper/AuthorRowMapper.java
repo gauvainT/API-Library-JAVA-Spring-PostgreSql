@@ -13,8 +13,8 @@ public class AuthorRowMapper implements RowMapper<Author>{
 	public Author mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Author author = new Author();
 		author.setIdAuthor(rs.getLong("id_author"));
-		author.setName(rs.getString("name"));
-		author.setFirstname(rs.getString("firstname"));
+		author.setNameAuthor(rs.getString("name_author"));
+		author.setFirstnameAuthor(rs.getString("firstname_author"));
 		return author;
 	}
 

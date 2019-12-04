@@ -16,11 +16,11 @@ public class Author {
 	@Column(name= "idAuthor", columnDefinition = "serial")
 	private Long idAuthor;
 	
-	@Column(name = "name")
-	private String name;
+	@Column(name = "name_author")
+	private String nameAuthor;
 	
-	@Column(name = "firstname")
-	private String firstname;
+	@Column(name = "firstname_author")
+	private String firstnameAuthor;
 
 	// Constructeur
 	
@@ -28,11 +28,19 @@ public class Author {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 
-	public Author(String name, String firstname) {
+	public Author(String nameAuthor, String firstnameAuthor) {
 		super();
-		this.name = name;
-		this.firstname = firstname;
+		this.nameAuthor = nameAuthor;
+		this.firstnameAuthor = firstnameAuthor;
+	}
+
+	public Author(Long idAuthor, String nameAuthor, String firstnameAuthor) {
+		super();
+		this.idAuthor = idAuthor;
+		this.nameAuthor = nameAuthor;
+		this.firstnameAuthor = firstnameAuthor;
 	}
 
 	//Getter Setter
@@ -41,33 +49,36 @@ public class Author {
 		return idAuthor;
 	}
 
+
 	public void setIdAuthor(Long idAuthor) {
 		this.idAuthor = idAuthor;
 	}
 
-	public String getName() {
-		return name;
+
+	public String getNameAuthor() {
+		return nameAuthor;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+
+	public void setNameAuthor(String nameAuthor) {
+		this.nameAuthor = nameAuthor;
 	}
 
-	public String getFirstname() {
-		return firstname;
+
+	public String getFirstnameAuthor() {
+		return firstnameAuthor;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+
+	public void setFirstnameAuthor(String firstnameAuthor) {
+		this.firstnameAuthor = firstnameAuthor;
 	}
 
 	// To string
-	
 	@Override
 	public String toString() {
-		return "Author [name=" + name + ", firstname=" + firstname + "]";
+		return "Author [idAuthor=" + idAuthor + ", nameAuthor=" + nameAuthor + ", firstnameAuthor=" + firstnameAuthor + "]";
 	}
-	
-	
+
 	
 }

@@ -29,7 +29,7 @@ public class BookDao implements IBookDao {
 
 	@Override
 	public List<Book> findAll() {
-		final String request = "SELECT * FROM book";
+		final String request = "SELECT * FROM book INNER JOIN author ON (book.id_author = author.id_author) INNER JOIN category ON (book.id_category = category.id_category)";
  
 		try {
 			return jdbcTemplate.query(request, new BookRowMapper());
@@ -43,7 +43,7 @@ public class BookDao implements IBookDao {
 	@Override
 	public Book findByIdBook(Long id) {
 		
-		final String request = "SELECT * FROM book WHERE id_book = :idBook";
+		final String request = "SELECT * FROM book INNER JOIN author ON (book.id_author = author.id_author) INNER JOIN category ON (book.id_category = category.id_category) WHERE id_book = :idBook";
 		
 		SqlParameterSource param = new MapSqlParameterSource()
 		.addValue("idBook", id);

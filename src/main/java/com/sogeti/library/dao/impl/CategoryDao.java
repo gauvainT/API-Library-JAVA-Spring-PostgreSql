@@ -54,10 +54,10 @@ public class CategoryDao implements ICategoryDao {
 
 	@Override
 	public void addCategory(Category category) {
-		final String request = "INSERT INTO category (name) VALUES (:nameCategory)";
+		final String request = "INSERT INTO category (name_category) VALUES (:nameCategory)";
 		
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("nameCategory", category.getName());
+		map.put("nameCategory", category.getNameCategory());
 		
 		try {
 			jdbcTemplate.execute(request, map, new PreparedStatementCallback<Object>() {  
@@ -75,10 +75,10 @@ public class CategoryDao implements ICategoryDao {
 
 	@Override
 	public void updateCategory(Category category) {
-		final String request = "UPDATE category SET name=:categoryName WHERE id_category=:idCategory";
+		final String request = "UPDATE category SET name_category=:categoryName WHERE id_category=:idCategory";
 
 		 Map<String,Object> map=new HashMap<String,Object>();  
-		map.put("categoryName", category.getName());
+		map.put("categoryName", category.getNameCategory());
 		map.put("idCategory", category.getIdCategory());
 		
 		try {

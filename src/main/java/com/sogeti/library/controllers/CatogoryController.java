@@ -44,7 +44,7 @@ public class CatogoryController {
 
 	/*
     * Description : ajoute une catégorie
-    * @param : Category ( String name )
+    * @param : Category ( String nameCategory )
     */
 	@PostMapping("/addCategory")
 	public void addCategory(@RequestBody Category category) {
@@ -53,7 +53,7 @@ public class CatogoryController {
 	
 	/*
     * Description : modifie une catégorie d'après son id 
-    * @param : Category ( Long IdCategory, String name )
+    * @param : Category ( Long IdCategory, String nameCategory )
     */
 	@PutMapping("/updateCategory")
 	public void updateCategory(@RequestBody Category category) {
@@ -62,7 +62,7 @@ public class CatogoryController {
 
 	/*
     * Description : Supprime une catégorie
-    * @param : Auteur ( Long idCategory, String name)
+    * @param : Auteur ( Long idCategory, String nameCategory)
     */
 	@DeleteMapping("/deleteCategory")
 	public void deleteCategory(@RequestBody Category category) {

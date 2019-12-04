@@ -41,12 +41,30 @@ public class BookRowMapper implements RowMapper<Book> {
 			category = categoryDao.findByIdCategory(idCategory);
 		}
 		*/
+		
+		Author author = new Author();
+
+		if(rs.getString("name_author") != null) {
+			
+			author.setIdAuthor(rs.getLong("id_author"));
+			author.setNameAuthor(rs.getString("name_author"));
+			author.setFirstnameAuthor("firstname_author");
+			
+		}
+		
+		Category category = new Category();
+
+		if(rs.getString("name_category") != null) {
+			category.setIdCategory(rs.getLong("id_category"));
+			category.setNameCategory(rs.getString("name_category"));
+			
+		}
 		Book book = new Book();
 		book.setIdBook(rs.getLong("id_book"));
 		book.setTitle(rs.getString("title"));
 		book.setSummary(rs.getString("summary"));
-		//book.setAuthor(author);
-		//book.setCategory(category);
+		book.setAuthor(author);
+		book.setCategory(category);
 
 		return book;
 	

@@ -43,7 +43,7 @@ public class BookController {
 
 	/*
     * Description : ajoute un livre
-    * @param : Book ( String title, String summary, Auteur auteur, Category category )
+    * @param : Book ( String title, String summary, Author author, Category category )
     */
 	@PostMapping("/addBook")
 	public void addBook(@RequestBody Book book) {
@@ -52,7 +52,7 @@ public class BookController {
 
 	/*
     * Description : modifie un livre d'après son id 
-    * @param : Book ( Long IdBook, String title, String summary, Auteur auteur, Category category )
+    * @param : Book ( Long IdBook, String title, String summary, Author author, Category category )
     */
 	@PutMapping("/updateBook")
 	public void updateBook(@RequestBody Book book) {
