@@ -13,12 +13,12 @@ public interface IAuthorDao {
 	public Author findByIdAuthor(Long id);
 	
 	// add an author
-	public void addAuthor(Author author);
+	public String addAuthor(Author author);
 	
 	// update an author
-	public void updateAuthor(Author author);
+	public String updateAuthor(Author author);
 	
 	// delete an author
-	public void deleteAuthor(Author author);
+	public String deleteAuthor(Author author);
 
 }

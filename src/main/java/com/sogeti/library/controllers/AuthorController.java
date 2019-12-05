@@ -47,8 +47,8 @@ public class AuthorController {
     * @param : Auteur ( String nameAuthor )
     */
 	@PostMapping("/addAuthor")
-	public void addAuthor(@RequestBody Author author) {
-		authorService.addAuthor(author);
+	public String addAuthor(@RequestBody Author author) {
+		return authorService.addAuthor(author);
 	}
 
 	/*
@@ -56,8 +56,8 @@ public class AuthorController {
     * @param : Auteur ( Long idAuthor, String nameAuthor)
     */
 	@PutMapping("/updateAuthor")
-	public void updateAuthor(@RequestBody Author author) {
-		authorService.updateAuthor(author);
+	public String updateAuthor(@RequestBody Author author) {
+		return authorService.updateAuthor(author);
 	}
 
 	/*
@@ -65,8 +65,8 @@ public class AuthorController {
     * @param : Auteur ( Long idAuthor, String nameAuthor)
     */
 	@DeleteMapping("/deleteAuthor")
-	public void deleteAuthor(@RequestBody Author author) {
-		authorService.deleteAuthor(author);
+	public String deleteAuthor(@RequestBody Author author) {
+		return authorService.deleteAuthor(author);
 	}
 	
 	/*

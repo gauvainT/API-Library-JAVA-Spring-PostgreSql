@@ -20,19 +20,22 @@ public class BookBouchonService implements IBookService {
 	}
 
 	@Override
-	public void addBook(Book book) {
+	public String addBook(Book book) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updateBook(Book book) {
+	public String updateBook(Book book) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteBook(Book book) {
+	public String deleteBook(Book book) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}

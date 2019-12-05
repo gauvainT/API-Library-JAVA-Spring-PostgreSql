@@ -55,7 +55,7 @@ public class AuthorDao implements IAuthorDao {
 	}
 	
 	@Override
-	public void addAuthor(Author author) {
+	public String addAuthor(Author author) {
 		
 		final String request = "INSERT INTO author (name_author, firstname_author) VALUES (:nameAuthor, :firstnameAuthor)";
 		
@@ -68,17 +68,19 @@ public class AuthorDao implements IAuthorDao {
 			    @Override  
 			    public Object doInPreparedStatement(PreparedStatement ps)  
 			            throws SQLException, DataAccessException {  
-			        return ps.executeUpdate();  
+			        	ps.executeUpdate(); 
+				        return "success";
 			    }
 			});
 			
 		} catch (Exception e) {
-			System.out.println(e.getMessage().toString());
+			return e.getMessage().toString();
 		}
+		return "success";
 	}
 
 	@Override
-	public void updateAuthor(Author author) {
+	public String updateAuthor(Author author) {
 		final String request = "UPDATE author SET name_author=:authorName, firstname_author=:authorFirstname WHERE id_author=:idAuthor";
 
 		 Map<String,Object> map=new HashMap<String,Object>();  
@@ -90,17 +92,19 @@ public class AuthorDao implements IAuthorDao {
 			    @Override  
 			    public Object doInPreparedStatement(PreparedStatement ps)  
 			            throws SQLException, DataAccessException {  
-			        return ps.executeUpdate();  
+			        	ps.executeUpdate();
+				        return "success";
 			    }
 			});
 			
 		} catch (Exception e) {
-			System.out.println(e.getMessage().toString());
+			return e.getMessage().toString();
 		}
+		return "success";
 	}
 
 	@Override
-	public void deleteAuthor(Author author) {
+	public String deleteAuthor(Author author) {
 		 final String request = "DELETE FROM author WHERE id_author=:idAuthor";
 	
 		 Map<String,Object> map=new HashMap<String,Object>();
@@ -110,13 +114,15 @@ public class AuthorDao implements IAuthorDao {
 			    @Override  
 			    public Object doInPreparedStatement(PreparedStatement ps)  
 			            throws SQLException, DataAccessException {  
-			        return ps.executeUpdate();  
+			        	ps.executeUpdate(); 
+				        return "success";
 			    }
 			});
 			
 		} catch (Exception e) {
-			System.out.println(e.getMessage().toString());
+			return e.getMessage().toString();
 		}
+		return "success";
 	}
 
 }

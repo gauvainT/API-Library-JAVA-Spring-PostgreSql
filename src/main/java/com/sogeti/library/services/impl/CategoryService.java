@@ -9,9 +9,10 @@ import org.springframework.stereotype.Component;
 
 import com.sogeti.library.dao.impl.CategoryDao;
 import com.sogeti.library.models.Category;
+import com.sogeti.library.services.ICategoryService;
 
 @Component
-public class CategoryService {
+public class CategoryService implements ICategoryService{
 	
 	@Autowired
 	private CategoryDao categoryDao;
@@ -27,18 +28,18 @@ public class CategoryService {
 	}
 
 	@Transactional
-	public void addCategory(Category category) {
-		categoryDao.addCategory(category);
+	public String addCategory(Category category) {
+		return categoryDao.addCategory(category);
 	}
 
 	@Transactional
-	public void updateCategory(Category category) {
-		categoryDao.updateCategory(category);
+	public String updateCategory(Category category) {
+		return categoryDao.updateCategory(category);
 	}
 
 	@Transactional
-	public void deleteCategory(Category category) {
-		categoryDao.deleteCategory(category);
+	public String deleteCategory(Category category) {
+		return categoryDao.deleteCategory(category);
 	}
 
 }

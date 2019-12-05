@@ -10,11 +10,11 @@ public interface IBookService {
 
 	public Book findByIdBook(Long id);
 
-	public void addBook(Book book);
+	public String addBook(Book book);
 
-	public void updateBook(Book book);
+	public String updateBook(Book book);
 
-	public void deleteBook(Book book);
+	public String deleteBook(Book book);
 
 
 }

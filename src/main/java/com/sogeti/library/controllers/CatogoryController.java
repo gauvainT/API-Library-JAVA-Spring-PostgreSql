@@ -47,8 +47,8 @@ public class CatogoryController {
     * @param : Category ( String nameCategory )
     */
 	@PostMapping("/addCategory")
-	public void addCategory(@RequestBody Category category) {
-		categoryService.addCategory(category);
+	public String addCategory(@RequestBody Category category) {
+		return categoryService.addCategory(category);
 	}
 	
 	/*
@@ -56,8 +56,8 @@ public class CatogoryController {
     * @param : Category ( Long IdCategory, String nameCategory )
     */
 	@PutMapping("/updateCategory")
-	public void updateCategory(@RequestBody Category category) {
-		categoryService.updateCategory(category);
+	public String updateCategory(@RequestBody Category category) {
+		return categoryService.updateCategory(category);
 	}
 
 	/*
@@ -65,8 +65,8 @@ public class CatogoryController {
     * @param : Auteur ( Long idCategory, String nameCategory)
     */
 	@DeleteMapping("/deleteCategory")
-	public void deleteCategory(@RequestBody Category category) {
-		categoryService.deleteCategory(category);
+	public String deleteCategory(@RequestBody Category category) {
+		return categoryService.deleteCategory(category);
 	}
 	
 	/*
@@ -74,13 +74,18 @@ public class CatogoryController {
     * @param :Long id
     */
 	@DeleteMapping("/deleteCategoryById")
-	public void deleteCategoryById(@RequestParam(name = "id") Long id) {
-		
-		Category category = categoryService.findByIdCategory(id);
-		
-		if( category != null) {
-			categoryService.deleteCategory(category);
+	public String deleteCategoryById(@RequestParam(name = "id") Long id) {
+		try {
+			Category category = categoryService.findByIdCategory(id);
+			if( category != null) {
+				categoryService.deleteCategory(category);
+			}
+		} catch (Exception e) {
+			return e.getMessage().toString();
 		}
+		
+	
+		return "success";
 	}
 
 }

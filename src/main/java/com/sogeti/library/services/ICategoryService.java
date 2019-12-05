@@ -10,10 +10,10 @@ public interface ICategoryService {
 
 	public Category findByIdCategory(Long id);
 
-	public void addCategory(Category category);
+	public String addCategory(Category category);
 
-	public void updateCategory(Category category);
+	public String updateCategory(Category category);
 
-	public void deleteCategory(Category category);
+	public String deleteCategory(Category category);
 
 }

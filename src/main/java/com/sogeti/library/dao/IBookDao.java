@@ -14,12 +14,12 @@ public interface IBookDao {
 	public Book findByIdBook(Long id);
 	
 	// add a book
-	public void addBook(Book book);
+	public String addBook(Book book);
 	
 	// update a book
-	public void updateBook(Book book);
+	public String updateBook(Book book);
 	
 	// delete a book
-	public void deleteBook(Book book);
+	public String deleteBook(Book book);
 
 }

@@ -58,7 +58,7 @@ public class BookDao implements IBookDao {
 	}
 
 	@Override
-	public void addBook(Book book) {
+	public String addBook(Book book) {
 		
 		final String request = "INSERT INTO book (title, summary, id_author, id_category) VALUES (:titleBook, :summaryBook, :idAuthor, :idCategory )";
 		
@@ -67,22 +67,25 @@ public class BookDao implements IBookDao {
 		map.put("summaryBook", book.getSummary());
 		map.put("idAuthor", book.getAuthor().getIdAuthor());
 		map.put("idCategory", book.getCategory().getIdCategory());
+		
 		try {
 			jdbcTemplate.execute(request, map, new PreparedStatementCallback<Object>() {  
 			    @Override  
 			    public Object doInPreparedStatement(PreparedStatement ps)  
 			            throws SQLException, DataAccessException {  
-			        return ps.executeUpdate();  
+			        ps.executeUpdate(); 
+			        return "success";
 			    }
 			});
 			
 		} catch (Exception e) {
-			System.out.println(e.getMessage().toString());
+			return e.getMessage().toString();
 		}
+		return "success";
 	}
 
 	@Override
-	public void updateBook(Book book) {
+	public String updateBook(Book book) {
 		final String request = "UPDATE book SET title=:titleBook, summary=:summaryBook, id_author=:idAuthor, id_category=:idCategory WHERE id_book=:idBook";
 
 		 Map<String,Object> map=new HashMap<String,Object>();  
@@ -97,16 +100,18 @@ public class BookDao implements IBookDao {
 			    @Override  
 			    public Object doInPreparedStatement(PreparedStatement ps)  
 			            throws SQLException, DataAccessException {  
-			        return ps.executeUpdate();  
+			         	ps.executeUpdate();  
+				        return "success";
 			    }
 			});
 		}catch (Exception e) {
-			System.out.println(e.getMessage().toString());
-		}	
+			return e.getMessage().toString();
+		}
+		return "success";
 	}
 		
 	@Override
-	public void deleteBook(Book book) {
+	public String deleteBook(Book book) {
 		 final String request = "DELETE FROM book WHERE id_book=:idBook";
 			
 		 Map<String,Object> map=new HashMap<String,Object>();
@@ -116,13 +121,15 @@ public class BookDao implements IBookDao {
 			    @Override  
 			    public Object doInPreparedStatement(PreparedStatement ps)  
 			            throws SQLException, DataAccessException {  
-			        return ps.executeUpdate();  
+			        	ps.executeUpdate(); 
+				        return "success";
 			    }
 			});
 			
 		} catch (Exception e) {
-			System.out.println(e.getMessage().toString());
+			return e.getMessage().toString();
 		}
+		return "success";
 	}
 
 }

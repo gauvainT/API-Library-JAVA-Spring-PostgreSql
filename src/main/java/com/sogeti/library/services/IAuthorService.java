@@ -10,10 +10,10 @@ public interface IAuthorService {
 
 	public Author findByIdAuthor(Long id);
 
-	public void addAuthor(Author author);
+	public String addAuthor(Author author);
 
-	public void updateAuthor(Author author);
+	public String updateAuthor(Author author);
 
-	public void deleteAuthor(Author author);
+	public String deleteAuthor(Author author);
 
 }

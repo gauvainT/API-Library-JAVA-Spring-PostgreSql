@@ -53,7 +53,7 @@ public class CategoryDao implements ICategoryDao {
 	}
 
 	@Override
-	public void addCategory(Category category) {
+	public String addCategory(Category category) {
 		final String request = "INSERT INTO category (name_category) VALUES (:nameCategory)";
 		
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -64,17 +64,19 @@ public class CategoryDao implements ICategoryDao {
 			    @Override  
 			    public Object doInPreparedStatement(PreparedStatement ps)  
 			            throws SQLException, DataAccessException {  
-			        return ps.executeUpdate();  
+			        	ps.executeUpdate();  
+				        return "success";
 			    }
 			});
 			
 		} catch (Exception e) {
-			System.out.println(e.getMessage().toString());
-		}	
+			return e.getMessage().toString();
+		}
+		return "success";	
 	}
 
 	@Override
-	public void updateCategory(Category category) {
+	public String updateCategory(Category category) {
 		final String request = "UPDATE category SET name_category=:categoryName WHERE id_category=:idCategory";
 
 		 Map<String,Object> map=new HashMap<String,Object>();  
@@ -86,18 +88,19 @@ public class CategoryDao implements ICategoryDao {
 			    @Override  
 			    public Object doInPreparedStatement(PreparedStatement ps)  
 			            throws SQLException, DataAccessException {  
-			        return ps.executeUpdate();  
+			         	ps.executeUpdate();  
+				        return "success";
 			    }
 			});
 			
 		} catch (Exception e) {
-			System.out.println(e.getMessage().toString());
+			return e.getMessage().toString();
 		}
-		
+		return "success";		
 	}
 
 	@Override
-	public void deleteCategory(Category category) {
+	public String deleteCategory(Category category) {
 		 final String request = "DELETE FROM category WHERE id_category=:idCategory";
 			
 		 Map<String,Object> map=new HashMap<String,Object>();
@@ -108,14 +111,15 @@ public class CategoryDao implements ICategoryDao {
 				    @Override  
 				    public Object doInPreparedStatement(PreparedStatement ps)  
 				            throws SQLException, DataAccessException {  
-				        return ps.executeUpdate();  
+				        	ps.executeUpdate();
+					        return "success";
 				    }
 				});
 			
 		} catch (Exception e) {
-			System.out.println(e.getMessage().toString());
+			return e.getMessage().toString();
 		}
-		
+		 return "success";		
 	}
 
 }

@@ -21,17 +21,20 @@ public class AuthorBouchonService implements IAuthorService {
 	}
 
 	@Override
-	public void addAuthor(Author author) {
+	public String addAuthor(Author author) {
+		return null;
 		// TODO Auto-generated method stub
 	}
 
 	@Override
-	public void updateAuthor(Author author) {
+	public String updateAuthor(Author author) {
+		return null;
 		// TODO Auto-generated method stub
 	}
 
 	@Override
-	public void deleteAuthor(Author author) {
+	public String deleteAuthor(Author author) {
+		return null;
 		// TODO Auto-generated method stub
 	}
 

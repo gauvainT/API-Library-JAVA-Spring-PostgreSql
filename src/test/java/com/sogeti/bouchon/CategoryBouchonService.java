@@ -20,19 +20,22 @@ public class CategoryBouchonService implements ICategoryService {
 	}
 
 	@Override
-	public void addCategory(Category category) {
+	public String addCategory(Category category) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updateCategory(Category category) {
+	public String updateCategory(Category category) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteCategory(Category category) {
+	public String deleteCategory(Category category) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}

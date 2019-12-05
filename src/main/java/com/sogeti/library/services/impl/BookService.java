@@ -9,9 +9,10 @@ import org.springframework.stereotype.Component;
 
 import com.sogeti.library.dao.impl.BookDao;
 import com.sogeti.library.models.Book;
+import com.sogeti.library.services.IBookService;
 
 @Component
-public class BookService {
+public class BookService implements IBookService {
 	
 	@Autowired
 	private BookDao bookDao;
@@ -27,18 +28,18 @@ public class BookService {
 	}
 
 	@Transactional
-	public void addBook(Book book) {
-		bookDao.addBook(book);
+	public String addBook(Book book) {
+		return bookDao.addBook(book);
 	}
 
 	@Transactional
-	public void updateBook(Book book) {
-		bookDao.updateBook(book);
+	public String updateBook(Book book) {
+		return bookDao.updateBook(book);
 	}
 
 	@Transactional
-	public void deleteBook(Book book) {
-		bookDao.deleteBook(book);	
+	public String deleteBook(Book book) {
+		return bookDao.deleteBook(book);	
 	}
 
 }

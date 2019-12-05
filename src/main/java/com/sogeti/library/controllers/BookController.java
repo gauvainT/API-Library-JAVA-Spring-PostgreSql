@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sogeti.library.models.Book;
@@ -37,7 +38,7 @@ public class BookController {
     * @param : Long id
     */
 	@GetMapping("/findOneBook")
-	public Book findByIdBook(@RequestBody Long id) {
+	public Book findByIdBook(@RequestParam(name = "id") Long id) {
 		return bookService.findByIdBook(id);
 	}
 
@@ -46,8 +47,8 @@ public class BookController {
     * @param : Book ( String title, String summary, Author author, Category category )
     */
 	@PostMapping("/addBook")
-	public void addBook(@RequestBody Book book) {
-		bookService.addBook(book);
+	public String addBook(@RequestBody Book book) {
+		return bookService.addBook(book);
 	}
 
 	/*
@@ -55,8 +56,8 @@ public class BookController {
     * @param : Book ( Long IdBook, String title, String summary, Author author, Category category )
     */
 	@PutMapping("/updateBook")
-	public void updateBook(@RequestBody Book book) {
-		bookService.updateBook(book);
+	public String updateBook(@RequestBody Book book) {
+		return bookService.updateBook(book);
 	}
 
 	/*
@@ -64,8 +65,8 @@ public class BookController {
     * @param : Auteur ( Long idBook, String title, String summary)
     */
 	@DeleteMapping("/deleteBook")
-	public void deleteBook(@RequestBody Book book) {
-		bookService.deleteBook(book);	
+	public String deleteBook(@RequestBody Book book) {
+		return bookService.deleteBook(book);	
 	}
 	
 	/*
@@ -73,7 +74,7 @@ public class BookController {
     * @param :Long id
     */
 	@DeleteMapping("/deleteBookById")
-	public void deleteBookById(@RequestBody Long id) {
+	public void deleteBookById(@RequestParam(name = "id") Long id) {
 		Book book = bookService.findByIdBook(id);
 		
 		if(book != null) {

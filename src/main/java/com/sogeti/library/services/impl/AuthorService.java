@@ -9,9 +9,10 @@ import org.springframework.stereotype.Component;
 
 import com.sogeti.library.dao.impl.AuthorDao;
 import com.sogeti.library.models.Author;
+import com.sogeti.library.services.IAuthorService;
 
 @Component
-public class AuthorService {
+public class AuthorService implements IAuthorService{
 	
 	@Autowired
 	private AuthorDao authorDao;
@@ -27,18 +28,18 @@ public class AuthorService {
 	}
 
 	@Transactional
-	public void addAuthor(Author author) {
-		authorDao.addAuthor(author);
+	public String addAuthor(Author author) {
+		return authorDao.addAuthor(author);
 	}
 
 	@Transactional
-	public void updateAuthor(Author author) {
-		authorDao.updateAuthor(author);
+	public String updateAuthor(Author author) {
+		return authorDao.updateAuthor(author);
 	}
 
 	@Transactional
-	public void deleteAuthor(Author author) {
-		authorDao.deleteAuthor(author);
+	public String deleteAuthor(Author author) {
+		return authorDao.deleteAuthor(author);
 	}
 
 }
